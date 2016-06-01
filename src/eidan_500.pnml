@@ -1,0 +1,75 @@
+//Eidan 500 series
+
+spriteset(sprites_eidan_500_front, "sprites/eidan_500_1x.png") {
+	tmpl_train_28(0, 14)
+}
+
+spriteset(sprites_eidan_500_back, "sprites/eidan_500_1x.png") {
+	tmpl_train_28(0, 40)
+}
+
+spriteset(sprites_eidan_500_mid, "sprites/eidan_500_1x.png") {
+	tmpl_train_28(0, 66)
+}
+
+spriteset(sprites_eidan_500_purchase, "sprites/eidan_500_1x.png") {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[ 0,	  0,	   1,     1,	  0,	    0]
+	[ 0,	  0,	   1,     1,	  0,	    0]
+	[ 0,	  0,	   1,     1,	  0,	    0]
+	[ 0,	  0,	   1,     1,	  0,	    0]
+	[ 0,	  0,	   1,     1,	  0,	    0]
+	[ 0,	  0,	   1,     1,	  0,	    0]
+	[ 0,  	  0,	   75,	  13,	  -27,	    -6]
+	[ 0,	  0,	   1,     1,	  0,	    0]
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_500, getbits(extra_callback_info1, 0, 8)) {
+	1..5: return item_eidan_500;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_500_sprites, position_in_vehid_chain) {
+	0: return sprites_eidan_500_front;
+	1..4: return sprites_eidan_500_mid;
+	5: return sprites_eidan_500_back;
+}
+
+
+item (FEAT_TRAINS, item_eidan_500, 276) {
+	property {
+		name: string(STR_NAME_EIDAN_500);
+		climates_available: ALL_CLIMATES;
+		introduction_date: date(1957,01,01);
+		model_life: 30;
+		vehicle_life: 35;
+		refittable_cargo_classes: bitmask(CC_PASSENGERS);
+		loading_speed: 25;
+		cargo_age_period: 50;
+		sprite_id: SPRITE_ID_NEW_TRAIN;
+		speed: 65 km/h;
+		refit_cost: 0;
+		track_type: RT_SAB3;
+		ai_special_flag: AI_FLAG_PASSENGER;
+		power: 1800 kW;
+		length: 7;
+		cost_factor: 16;
+		running_cost_base: RUNNING_COST_ELECTRIC;
+		running_cost_factor: 16;
+		dual_headed: 0;
+		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
+		cargo_capacity: 132;
+		weight: 207 tons;
+		engine_class: ENGINE_CLASS_ELECTRIC;
+		tractive_effort_coefficient: 0.09;
+		visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,ENABLE_WAGON_POWER);
+	}
+	
+	graphics {
+		articulated_part: switch_eidan_500;
+		can_attach_wagon: string(STR_NO_ATTACH);
+		additional_text: string(STR_DESC_EIDAN_500);
+		purchase: sprites_eidan_500_purchase;
+		default: switch_eidan_500_sprites;
+	}
+}

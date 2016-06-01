@@ -1,0 +1,115 @@
+//Eidan 02 series
+
+spriteset(sprites_eidan_02_front, "sprites/eidan_02_1x.png") {
+	tmpl_train_28(0, 14)
+}
+
+spriteset(sprites_eidan_02_back, "sprites/eidan_02_1x.png") {
+	tmpl_train_28(0, 40)
+}
+
+spriteset(sprites_eidan_02_mid, "sprites/eidan_02_1x.png") {
+	tmpl_train_28(0, 66)
+}
+
+spriteset(sprites_eidan_02_front_anni, "sprites/eidan_02_1x.png") {
+	tmpl_train_28(0, 89)
+}
+
+spriteset(sprites_eidan_02_back_anni, "sprites/eidan_02_1x.png") {
+	tmpl_train_28(0, 115)
+}
+
+spriteset(sprites_eidan_02_mid_anni, "sprites/eidan_02_1x.png") {
+	tmpl_train_28(0, 141)
+}
+
+spriteset(sprites_eidan_02_purchase, "sprites/eidan_02_1x.png") {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[ 0,	  0,	   1,     1,	  0,	    0]
+	[ 0,	  0,	   1,     1,	  0,	    0]
+	[ 0,	  0,	   1,     1,	  0,	    0]
+	[ 0,	  0,	   1,     1,	  0,	    0]
+	[ 0,	  0,	   1,     1,	  0,	    0]
+	[ 0,	  0,	   1,     1,	  0,	    0]
+	[ 0,  	  0,	   75,	  13,	  -27,	    -6]
+	[ 0,	  0,	   1,     1,	  0,	    0]
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_02_artic, getbits(extra_callback_info1, 0, 8)) {
+	1..5: return item_eidan_02;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_02_sprites, position_in_vehid_chain) {
+	0: return sprites_eidan_02_front;
+	1..4: return sprites_eidan_02_mid;
+	5: return sprites_eidan_02_back;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_02_sprites_anni, position_in_vehid_chain) {
+	0: return sprites_eidan_02_front_anni;
+	1..4: return sprites_eidan_02_mid_anni;
+	5: return sprites_eidan_02_back_anni;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_02_liveries, cargo_subtype) {
+	0: switch_eidan_02_sprites;
+	1: switch_eidan_02_sprites_anni;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_02_livery_text_anni, cargo_subtype) {
+	0: return string(STR_EMPTY);
+	1: return string(STR_LIV_EIDAN_02_ANNI);
+	return CB_RESULT_NO_TEXT;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_02_livery_text_normal, cargo_subtype) {
+	0: return string(STR_EMPTY);
+	return CB_RESULT_NO_TEXT;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_02_livery_text, current_year) {
+	0..2003: switch_eidan_02_livery_text_normal;
+	switch_eidan_02_livery_text_anni;
+}
+
+
+item (FEAT_TRAINS, item_eidan_02, 277) {
+	property {
+		name: string(STR_NAME_EIDAN_02);
+		climates_available: ALL_CLIMATES;
+		introduction_date: date(1988,01,01);
+		model_life: 30;
+		vehicle_life: 35;
+		refittable_cargo_classes: bitmask(CC_PASSENGERS);
+		loading_speed: 25;
+		cargo_age_period: 50;
+		sprite_id: SPRITE_ID_NEW_TRAIN;
+		speed: 75 km/h;
+		refit_cost: 0;
+		track_type: RT_SAB3;
+		ai_special_flag: AI_FLAG_PASSENGER;
+		power: 1440 kW;
+		length: 7;
+		cost_factor: 127;
+		running_cost_base: RUNNING_COST_ELECTRIC;
+		running_cost_factor: 127;
+		dual_headed: 0;
+		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
+		cargo_capacity: 132;
+		weight: 168 tons;
+		engine_class: ENGINE_CLASS_ELECTRIC;
+		tractive_effort_coefficient: 0.09;
+		visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,ENABLE_WAGON_POWER);
+	}
+	
+	graphics {
+		articulated_part: switch_eidan_02_artic;
+		cargo_subtype_text: switch_eidan_02_livery_text;
+		additional_text: string(STR_DESC_EIDAN_02);
+		can_attach_wagon: string(STR_NO_ATTACH);
+		purchase: sprites_eidan_02_purchase;
+		default: switch_eidan_02_liveries;
+	}
+}

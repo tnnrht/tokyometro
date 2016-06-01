@@ -1,0 +1,16 @@
+##grflangid 0x01
+#grf stuff
+STR_TOKYOMETRO_NAME		:Tokyo Metro Set
+STR_TOKYOMETRO_DESC		:Eidan and Tokyo Metro trains.
+
+#general
+STR_EMPTY				:
+STR_NO_ATTACH			:Nothing can attach to this vehicle.
+
+#vehicles
+STR_NAME_EIDAN_02		:Eidan 02 series
+STR_LIV_EIDAN_02_ANNI	: (50th Anniversary livery)
+STR_DESC_EIDAN_02		:Line served: {RED}Marunouchi Line{BLACK}{}Liveries: Standard, 50th Anniversary
+STR_NAME_EIDAN_03		:Eidan 03 series
+STR_NAME_EIDAN_500  	:Eidan 300/400/500/900 series
+STR_DESC_EIDAN_500		:Line served: {RED}Marunouchi Line{BLACK}
