@@ -78,7 +78,7 @@ switch (FEAT_TRAINS, SELF, switch_eidan_500_3car_sprites, position_in_articulate
 
 item (FEAT_TRAINS, item_eidan_500, 278) {
 	property {
-		name: string(STR_NAME_EIDAN_500);
+		name: string(STR_NAME_EIDAN_500,string(STR_6CAR));
 		climates_available: ALL_CLIMATES;
 		introduction_date: date(1965,01,01);
 		model_life: 25;
@@ -93,9 +93,9 @@ item (FEAT_TRAINS, item_eidan_500, 278) {
 		ai_special_flag: AI_FLAG_PASSENGER;
 		power: 1800 kW;
 		length: 7;
-		cost_factor: 16;
+		cost_factor: 60;
 		running_cost_base: RUNNING_COST_ELECTRIC;
-		running_cost_factor: 16;
+		running_cost_factor: 120;
 		dual_headed: 0;
 		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
 		cargo_capacity: 132;
@@ -116,7 +116,7 @@ item (FEAT_TRAINS, item_eidan_500, 278) {
 
 item (FEAT_TRAINS, item_eidan_500_2car, 276) {
 	property {
-		name: string(STR_NAME_EIDAN_500_2CAR);
+		name: string(STR_NAME_EIDAN_500,string(STR_2CAR));
 		climates_available: ALL_CLIMATES;
 		introduction_date: date(1957,01,01);
 		model_life: 10;
@@ -131,9 +131,9 @@ item (FEAT_TRAINS, item_eidan_500_2car, 276) {
 		ai_special_flag: AI_FLAG_PASSENGER;
 		power: 600 kW;
 		length: 7;
-		cost_factor: 16;
+		cost_factor: 20;
 		running_cost_base: RUNNING_COST_ELECTRIC;
-		running_cost_factor: 16;
+		running_cost_factor: 40;
 		dual_headed: 0;
 		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
 		cargo_capacity: 132;
@@ -154,7 +154,7 @@ item (FEAT_TRAINS, item_eidan_500_2car, 276) {
 
 item (FEAT_TRAINS, item_eidan_500_3car, 277) {
 	property {
-		name: string(STR_NAME_EIDAN_500_3CAR);
+		name: string(STR_NAME_EIDAN_500,string(STR_3CAR));
 		climates_available: ALL_CLIMATES;
 		introduction_date: date(1957,01,01);
 		model_life: 25;
@@ -169,9 +169,9 @@ item (FEAT_TRAINS, item_eidan_500_3car, 277) {
 		ai_special_flag: AI_FLAG_PASSENGER;
 		power: 900 kW;
 		length: 7;
-		cost_factor: 16;
+		cost_factor: 30;
 		running_cost_base: RUNNING_COST_ELECTRIC;
-		running_cost_factor: 16;
+		running_cost_factor: 60;
 		dual_headed: 0;
 		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
 		cargo_capacity: 132;

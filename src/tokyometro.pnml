@@ -1,9 +1,47 @@
+//header and global settings
 grf {
 	grfid: "mkw\E0";
 	name: string(STR_TOKYOMETRO_NAME);
 	desc: string(STR_TOKYOMETRO_DESC);
 	version: 2;
 	min_compatible_version: 2;
+	// purchase costs
+	param {
+		param_purchase {
+			type: int;
+			name: string(STR_PARAM_PURCHASE);
+			desc: string(STR_EMPTY);
+			min_value: 0;
+			max_value: 4;
+			def_value: 2;
+			names: {
+				0: string(STR_PARAM_VERY_LOW);
+				1: string(STR_PARAM_LOW);
+				2: string(STR_PARAM_DEFAULT);
+				3: string(STR_PARAM_HIGH);
+				4: string(STR_PARAM_VERY_HIGH);
+			};
+		}
+	}
+	
+	// running costs
+	param {
+		param_running {
+			type: int;
+			name: string(STR_PARAM_RUNNING);
+			desc: string(STR_EMPTY);
+			min_value: 0;
+			max_value: 4;
+			def_value: 2;
+			names: {
+				0: string(STR_PARAM_VERY_LOW);
+				1: string(STR_PARAM_LOW);
+				2: string(STR_PARAM_DEFAULT);
+				3: string(STR_PARAM_HIGH);
+				4: string(STR_PARAM_VERY_HIGH);
+			};
+		}
+	}
 }
 
 if (ttd_platform == PLATFORM_TTDPATCH) {
@@ -20,6 +58,12 @@ railtypetable {
 	RT_NABE: [NABE, ELRL],
 	RT_SAB3: [SAB3, "3RDR", ELRL]
 }
+
+basecost {
+	PR_BUILD_VEHICLE_TRAIN: -2+param_purchase;
+	PR_RUNNING_TRAIN_ELECTRIC: 1+param_running;
+}
+
 // graphics
 
 spriteset(sprites_empty, "sprites/eidan_03_tc_1x.png") {

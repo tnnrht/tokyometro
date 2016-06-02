@@ -88,7 +88,7 @@ switch (FEAT_TRAINS, SELF, switch_eidan_02_livery_text, current_year) {
 
 item (FEAT_TRAINS, item_eidan_02, 279) {
 	property {
-		name: string(STR_NAME_EIDAN_02);
+		name: string(STR_NAME_EIDAN_02,string(STR_6CAR));
 		climates_available: ALL_CLIMATES;
 		introduction_date: date(1988,01,01);
 		model_life: VEHICLE_NEVER_EXPIRES;
@@ -103,9 +103,9 @@ item (FEAT_TRAINS, item_eidan_02, 279) {
 		ai_special_flag: AI_FLAG_PASSENGER;
 		power: 1440 kW;
 		length: 7;
-		cost_factor: 127;
+		cost_factor: 66;
 		running_cost_base: RUNNING_COST_ELECTRIC;
-		running_cost_factor: 127;
+		running_cost_factor: 132;
 		dual_headed: 0;
 		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
 		cargo_capacity: 132;
@@ -127,7 +127,7 @@ item (FEAT_TRAINS, item_eidan_02, 279) {
 
 item (FEAT_TRAINS, item_eidan_02_3car, 280) {
 	property {
-		name: string(STR_NAME_EIDAN_02_3CAR);
+		name: string(STR_NAME_EIDAN_02,string(STR_3CAR));
 		climates_available: ALL_CLIMATES;
 		introduction_date: date(1996,01,01);
 		model_life: VEHICLE_NEVER_EXPIRES;
@@ -142,9 +142,9 @@ item (FEAT_TRAINS, item_eidan_02_3car, 280) {
 		ai_special_flag: AI_FLAG_PASSENGER;
 		power: 720 kW;
 		length: 7;
-		cost_factor: 127;
+		cost_factor: 33;
 		running_cost_base: RUNNING_COST_ELECTRIC;
-		running_cost_factor: 127;
+		running_cost_factor: 66;
 		dual_headed: 0;
 		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
 		cargo_capacity: 132;

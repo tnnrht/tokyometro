@@ -7,6 +7,13 @@ STR_TOKYOMETRO_DESC			:Eidan and Tokyo Metro trains.
 STR_EMPTY					:
 STR_MIN_OTTD_VERSION		:1.6.0
 STR_REQUIRES_DYNAMIC		:Tokyo Metro Set requires dynamic_engines to be enabled.
+STR_PARAM_PURCHASE			:Purchase costs
+STR_PARAM_RUNNING			:Running costs
+STR_PARAM_VERY_LOW			:Very low
+STR_PARAM_LOW				:Low
+STR_PARAM_DEFAULT			:Default
+STR_PARAM_HIGH				:High
+STR_PARAM_VERY_HIGH			:Very high
 
 #vehicles
 #general
@@ -15,19 +22,22 @@ STR_NO_ATTACH_MORE			:This train has reached its maximum length.
 STR_WRONG_ATTACH_TYPE		:This train type can't be attached.
 STR_ATTACH_1_SAME			:{GOLD}1{BLACK} set of the same type can be attached.
 STR_ATTACH_2_SAME			:Up to {GOLD}2{BLACK} sets of the same type can be attached.
+STR_2CAR					:(2-car)
+STR_3CAR					:(3-car)
+STR_4CAR					:(4-car)
+STR_6CAR					:(6-car)
+STR_8CAR					:(8-car)
 
 #marunouchi line
-STR_NAME_EIDAN_02			:Eidan 02 series (6-car)
-STR_NAME_EIDAN_02_3CAR		:Eidan 02 series (3-car)
+STR_NAME_EIDAN_02			:Eidan 02 series {STRING}
 STR_DESC_EIDAN_02			:Line served: Tōkyō Metro {RED}Marunouchi Line{BLACK}{}Liveries: {GOLD}Standard{BLACK}, {GOLD}50th Anniversary{BLACK}
 STR_DESC_EIDAN_02_3CAR		:Line served: Tōkyō Metro {RED}Hōnanchō Branch Line{BLACK}
 STR_LIV_EIDAN_02_ANNI		: (50th Anniversary livery)
-STR_NAME_EIDAN_500  		:Eidan 300/400/500/900 series (6-car)
-STR_NAME_EIDAN_500_2CAR		:Eidan 300/400/500/900 series (2-car)
-STR_NAME_EIDAN_500_3CAR		:Eidan 300/400/500/900 series (3-car)
+STR_NAME_EIDAN_500  		:Eidan 300/400/500/900 series {STRING}
 STR_DESC_EIDAN_500			:Line served: Tōkyō Metro {RED}Marunouchi Line{BLACK}{}{STRING}
 
 #hibiya line
 STR_NAME_EIDAN_03			:Eidan 03 series
 STR_NAME_EIDAN_3000			:Eidan 3000 series
 STR_DESC_EIDAN_3000			:Lines served: Tōkyō Metro {SILVER}Hibiya Line{BLACK}, Tōbu Railway {GOLD}Isesaki Line{BLACK}, Tōkyū Corporation {GOLD}Tōyoko Line{BLACK}
+
