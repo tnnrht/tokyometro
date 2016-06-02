@@ -2,8 +2,16 @@ grf {
 	grfid: "mkw\E0";
 	name: string(STR_TOKYOMETRO_NAME);
 	desc: string(STR_TOKYOMETRO_DESC);
-	version: 1;
-	min_compatible_version: 1;
+	version: 2;
+	min_compatible_version: 2;
+}
+
+if (ttd_platform == PLATFORM_TTDPATCH) {
+	error(FATAL, REQUIRES_OPENTTD, string(STR_MIN_OTTD_VERSION));
+}
+
+if (dynamic_engines == 0) {
+	error(FATAL, string(STR_REQUIRES_DYNAMIC));
 }
 
 train_width_32_px = 1;
@@ -33,6 +41,18 @@ template tmpl_train_28(x, y) {
 	[ x+171,  y,	   22,	  17,	  -6,	    -9]
 }
 
+template tmpl_train_32(x, y) {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[ x,	  y,	   8,     22,	  -3,	    -10]
+	[ x+9,	  y,	   20,	  17,	  -14,	    -8]
+	[ x+34,	  y,	   32,	  12,	  -12,	    -8]
+	[ x+73,	  y,	   20,	  17,	  -4,	    -8]
+	[ x+98,	  y,	   8,	  22,	  -3,	    -10]
+	[ x+107,  y,	   22,	  17,	  -16,	    -7]
+	[ x+132,  y,	   32,	  12,	  -17,	    -8]
+	[ x+171,  y,	   22,	  17,	  -6,	    -9]
+}
+
 // Vehicle IDs by line
 // Ginza: 256-275
 // Marunouchi: 276-295
@@ -40,9 +60,10 @@ template tmpl_train_28(x, y) {
 // etc...
 
 // Marunouchi
-#include "eidan_500.pnml"	//Eidan 300/400/500/900 series
-#include "eidan_02.pnml"	//Eidan 02 series
+#include "eidan_500.pnml"	//Eidan 300/400/500/900 series  ids:276,277,278
+#include "eidan_02.pnml"	//Eidan 02 series  ids:279,280
 
 // Hibiya
-//#include "eidan_03.pnml"	//Eidan 03 series (needs improvement)
+//#include "eidan_3000.pnml" //Eidan 3000 series
+//#include "eidan_03.pnml"	//Eidan 03 series
 
