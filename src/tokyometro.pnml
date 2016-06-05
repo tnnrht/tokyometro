@@ -3,7 +3,7 @@ grf {
 	grfid: "mkw\E0";
 	name: string(STR_TOKYOMETRO_NAME);
 	desc: string(STR_TOKYOMETRO_DESC);
-	version: 2;
+	version: 3;
 	min_compatible_version: 2;
 	// purchase costs
 	param {
@@ -73,6 +73,19 @@ spriteset(sprites_empty, "sprites/eidan_03_tc_1x.png") {
 	[0, 0, 1, 1, 0, 0]
 }
 
+template tmpl_train_purchase(x, y) {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[ x,	  y,	   1,     1,	  0,	    0]
+	[ x,	  y,	   1,     1,	  0,	    0]
+	[ x,	  y,	   1,     1,	  0,	    0]
+	[ x,	  y,	   1,     1,	  0,	    0]
+	[ x,	  y,	   1,     1,	  0,	    0]
+	[ x,	  y,	   1,     1,	  0,	    0]
+	[ x,  	  y,	   60,	  13,	  -27,	    -6]
+	[ x,	  y,	   1,     1,	  0,	    0]
+}
+
+
 template tmpl_train_28(x, y) {
 	//left_x, upper_y, width, height, offset_x, offset_y
 	[ x,	  y,	   8,     22,	  -3,	    -10]
@@ -83,6 +96,18 @@ template tmpl_train_28(x, y) {
 	[ x+107,  y,	   22,	  17,	  -16,	    -7]
 	[ x+132,  y,	   32,	  12,	  -17,	    -8]
 	[ x+171,  y,	   22,	  17,	  -6,	    -9]
+}
+
+template tmpl_train_28_high(x, y) {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[ x,	  y,	   8,     24,	  -3,	    -12]
+	[ x+9,	  y,	   20,	  19,	  -14,	    -10]
+	[ x+34,	  y,	   32,	  14,	  -12,	    -10]
+	[ x+73,	  y,	   20,	  19,	  -4,	    -10]
+	[ x+98,	  y,	   8,	  24,	  -3,	    -12]
+	[ x+107,  y,	   22,	  19,	  -16,	    -9]
+	[ x+132,  y,	   32,	  14,	  -17,	    -10]
+	[ x+171,  y,	   22,	  19,	  -6,	    -11]
 }
 
 template tmpl_train_32(x, y) {
@@ -108,6 +133,6 @@ template tmpl_train_32(x, y) {
 #include "eidan_02.pnml"	//Eidan 02 series  ids:279,280
 
 // Hibiya
-//#include "eidan_3000.pnml" //Eidan 3000 series
+//#include "eidan_3000.pnml" //Eidan 3000 series  ids:296,297,298,299
 //#include "eidan_03.pnml"	//Eidan 03 series
 

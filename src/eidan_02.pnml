@@ -25,15 +25,7 @@ spriteset(sprites_eidan_02_mid_anni, "sprites/eidan_02_1x.png") {
 }
 
 spriteset(sprites_eidan_02_purchase, "sprites/eidan_02_1x.png") {
-	//left_x, upper_y, width, height, offset_x, offset_y
-	[ 0,	  0,	   1,     1,	  0,	    0]
-	[ 0,	  0,	   1,     1,	  0,	    0]
-	[ 0,	  0,	   1,     1,	  0,	    0]
-	[ 0,	  0,	   1,     1,	  0,	    0]
-	[ 0,	  0,	   1,     1,	  0,	    0]
-	[ 0,	  0,	   1,     1,	  0,	    0]
-	[ 0,  	  0,	   75,	  13,	  -27,	    -6]
-	[ 0,	  0,	   1,     1,	  0,	    0]
+	tmpl_train_purchase(0, 0)
 }
 
 switch (FEAT_TRAINS, SELF, switch_eidan_02_artic, getbits(extra_callback_info1, 0, 8)) {
