@@ -104,7 +104,7 @@ item (FEAT_TRAINS, item_eidan_500_2car, 276) {
 	graphics {
 		articulated_part: switch_eidan_500_2car_artic;
 		can_attach_wagon: switch_eidan_500_attach;
-		additional_text: string(STR_DESC_EIDAN_500,string(STR_ATTACH_2_SAME));
+		additional_text: string(STR_DESC_EIDAN_500,string(STR_ATTACH_SAME,"6"));
 		purchase: sprites_eidan_500_purchase;
 		default: switch_eidan_500_2car_sprites;
 	}
@@ -142,7 +142,7 @@ item (FEAT_TRAINS, item_eidan_500_3car, 277) {
 	graphics {
 		articulated_part: switch_eidan_500_3car_artic;
 		can_attach_wagon: switch_eidan_500_attach;
-		additional_text: string(STR_DESC_EIDAN_500,string(STR_ATTACH_1_SAME));
+		additional_text: string(STR_DESC_EIDAN_500,string(STR_ATTACH_SAME,"6"));
 		purchase: sprites_eidan_500_purchase;
 		default: switch_eidan_500_3car_sprites;
 	}

@@ -20,8 +20,7 @@ STR_PARAM_VERY_HIGH			:Very high
 STR_NO_ATTACH				:Nothing can be attached to this train.
 STR_NO_ATTACH_MORE			:This train has reached its maximum length.
 STR_WRONG_ATTACH_TYPE		:This train type can't be attached.
-STR_ATTACH_1_SAME			:{GOLD}1{BLACK} set of the same type can be attached.
-STR_ATTACH_2_SAME			:Up to {GOLD}2{BLACK} sets of the same type can be attached.
+STR_ATTACH_SAME				:Sets of the same type can be attached, up to a maximum length of {STRING}.
 STR_2CAR					:(2-car)
 STR_3CAR					:(3-car)
 STR_4CAR					:(4-car)
@@ -38,6 +37,6 @@ STR_DESC_EIDAN_500			:Line served: Tōkyō Metro {RED}Marunouchi Line{BLACK}{}{S
 
 #hibiya line
 STR_NAME_EIDAN_03			:Eidan 03 series
-STR_NAME_EIDAN_3000			:Eidan 3000 series
-STR_DESC_EIDAN_3000			:Lines served: Tōkyō Metro {SILVER}Hibiya Line{BLACK}, Tōbu Railway {GOLD}Isesaki Line{BLACK}, Tōkyū Corporation {GOLD}Tōyoko Line{BLACK}
+STR_NAME_EIDAN_3000			:Eidan 3000 series {STRING}
+STR_DESC_EIDAN_3000			:Lines served: Tōkyō Metro {SILVER}Hibiya Line{BLACK}, Tōbu Railway {GOLD}Isesaki Line{BLACK}, Tōkyū Corporation {GOLD}Tōyoko Line{BLACK}{}{STRING}
 
