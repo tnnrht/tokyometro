@@ -49,13 +49,10 @@ switch (FEAT_TRAINS, PARENT, switch_eidan_500_3car_attach_length, num_vehs_in_co
 	return string(STR_NO_ATTACH_MORE);
 }
 
-switch (FEAT_TRAINS, SELF, switch_eidan_500_2car_attach, vehicle_type_id) {
+switch (FEAT_TRAINS, SELF, switch_eidan_500_attach, vehicle_type_id) {
 	276: switch_eidan_500_2car_attach_length;
-	return string(STR_WRONG_ATTACH_TYPE);
-}
-
-switch (FEAT_TRAINS, SELF, switch_eidan_500_3car_attach, vehicle_type_id) {
 	277: switch_eidan_500_3car_attach_length;
+	278: return string(STR_NO_ATTACH);
 	return string(STR_WRONG_ATTACH_TYPE);
 }
 
@@ -74,6 +71,81 @@ switch (FEAT_TRAINS, SELF, switch_eidan_500_3car_sprites, position_in_articulate
 	0: return sprites_eidan_500_front;
 	1: return sprites_eidan_500_mid;
 	2: return sprites_eidan_500_back;
+}
+item (FEAT_TRAINS, item_eidan_500_2car, 276) {
+	property {
+		name: string(STR_NAME_EIDAN_500,string(STR_2CAR));
+		climates_available: ALL_CLIMATES;
+		introduction_date: date(1957,01,01);
+		model_life: 10;
+		vehicle_life: 30;
+		refittable_cargo_classes: bitmask(CC_PASSENGERS);
+		loading_speed: 20;
+		cargo_age_period: 50;
+		sprite_id: SPRITE_ID_NEW_TRAIN;
+		speed: 65 km/h;
+		refit_cost: 0;
+		track_type: RT_SAB3;
+		ai_special_flag: AI_FLAG_PASSENGER;
+		power: 600 kW;
+		length: 7;
+		cost_factor: 20;
+		running_cost_base: RUNNING_COST_ELECTRIC;
+		running_cost_factor: 40;
+		dual_headed: 0;
+		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
+		cargo_capacity: 132;
+		weight: 69 tons;
+		engine_class: ENGINE_CLASS_ELECTRIC;
+		tractive_effort_coefficient: 0.09;
+		visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,ENABLE_WAGON_POWER);
+	}
+	
+	graphics {
+		articulated_part: switch_eidan_500_2car_artic;
+		can_attach_wagon: switch_eidan_500_attach;
+		additional_text: string(STR_DESC_EIDAN_500,string(STR_ATTACH_2_SAME));
+		purchase: sprites_eidan_500_purchase;
+		default: switch_eidan_500_2car_sprites;
+	}
+}
+
+item (FEAT_TRAINS, item_eidan_500_3car, 277) {
+	property {
+		name: string(STR_NAME_EIDAN_500,string(STR_3CAR));
+		climates_available: ALL_CLIMATES;
+		introduction_date: date(1957,01,01);
+		model_life: 25;
+		vehicle_life: 30;
+		refittable_cargo_classes: bitmask(CC_PASSENGERS);
+		loading_speed: 20;
+		cargo_age_period: 50;
+		sprite_id: SPRITE_ID_NEW_TRAIN;
+		speed: 65 km/h;
+		refit_cost: 0;
+		track_type: RT_SAB3;
+		ai_special_flag: AI_FLAG_PASSENGER;
+		power: 900 kW;
+		length: 7;
+		cost_factor: 30;
+		running_cost_base: RUNNING_COST_ELECTRIC;
+		running_cost_factor: 60;
+		dual_headed: 0;
+		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
+		cargo_capacity: 132;
+		weight: 103 tons;
+		engine_class: ENGINE_CLASS_ELECTRIC;
+		tractive_effort_coefficient: 0.09;
+		visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,ENABLE_WAGON_POWER);
+	}
+	
+	graphics {
+		articulated_part: switch_eidan_500_3car_artic;
+		can_attach_wagon: switch_eidan_500_attach;
+		additional_text: string(STR_DESC_EIDAN_500,string(STR_ATTACH_1_SAME));
+		purchase: sprites_eidan_500_purchase;
+		default: switch_eidan_500_3car_sprites;
+	}
 }
 
 item (FEAT_TRAINS, item_eidan_500, 278) {
@@ -114,78 +186,3 @@ item (FEAT_TRAINS, item_eidan_500, 278) {
 	}
 }
 
-item (FEAT_TRAINS, item_eidan_500_2car, 276) {
-	property {
-		name: string(STR_NAME_EIDAN_500,string(STR_2CAR));
-		climates_available: ALL_CLIMATES;
-		introduction_date: date(1957,01,01);
-		model_life: 10;
-		vehicle_life: 30;
-		refittable_cargo_classes: bitmask(CC_PASSENGERS);
-		loading_speed: 20;
-		cargo_age_period: 50;
-		sprite_id: SPRITE_ID_NEW_TRAIN;
-		speed: 65 km/h;
-		refit_cost: 0;
-		track_type: RT_SAB3;
-		ai_special_flag: AI_FLAG_PASSENGER;
-		power: 600 kW;
-		length: 7;
-		cost_factor: 20;
-		running_cost_base: RUNNING_COST_ELECTRIC;
-		running_cost_factor: 40;
-		dual_headed: 0;
-		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
-		cargo_capacity: 132;
-		weight: 69 tons;
-		engine_class: ENGINE_CLASS_ELECTRIC;
-		tractive_effort_coefficient: 0.09;
-		visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,ENABLE_WAGON_POWER);
-	}
-	
-	graphics {
-		articulated_part: switch_eidan_500_2car_artic;
-		can_attach_wagon: switch_eidan_500_2car_attach;
-		additional_text: string(STR_DESC_EIDAN_500,string(STR_ATTACH_2_SAME));
-		purchase: sprites_eidan_500_purchase;
-		default: switch_eidan_500_2car_sprites;
-	}
-}
-
-item (FEAT_TRAINS, item_eidan_500_3car, 277) {
-	property {
-		name: string(STR_NAME_EIDAN_500,string(STR_3CAR));
-		climates_available: ALL_CLIMATES;
-		introduction_date: date(1957,01,01);
-		model_life: 25;
-		vehicle_life: 30;
-		refittable_cargo_classes: bitmask(CC_PASSENGERS);
-		loading_speed: 20;
-		cargo_age_period: 50;
-		sprite_id: SPRITE_ID_NEW_TRAIN;
-		speed: 65 km/h;
-		refit_cost: 0;
-		track_type: RT_SAB3;
-		ai_special_flag: AI_FLAG_PASSENGER;
-		power: 900 kW;
-		length: 7;
-		cost_factor: 30;
-		running_cost_base: RUNNING_COST_ELECTRIC;
-		running_cost_factor: 60;
-		dual_headed: 0;
-		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
-		cargo_capacity: 132;
-		weight: 103 tons;
-		engine_class: ENGINE_CLASS_ELECTRIC;
-		tractive_effort_coefficient: 0.09;
-		visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,ENABLE_WAGON_POWER);
-	}
-	
-	graphics {
-		articulated_part: switch_eidan_500_3car_artic;
-		can_attach_wagon: switch_eidan_500_3car_attach;
-		additional_text: string(STR_DESC_EIDAN_500,string(STR_ATTACH_1_SAME));
-		purchase: sprites_eidan_500_purchase;
-		default: switch_eidan_500_3car_sprites;
-	}
-}
