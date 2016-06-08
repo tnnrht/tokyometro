@@ -1,0 +1,151 @@
+//Eidan 03 series
+
+spriteset(sprites_eidan_03_front, "sprites/eidan_03_1x.png") {
+	tmpl_train_28_high(0, 28)
+}
+
+spriteset(sprites_eidan_03_back, "sprites/eidan_03_1x.png") {
+	tmpl_train_28_high(0, 56)
+}
+
+spriteset(sprites_eidan_03_mid, "sprites/eidan_03_1x.png") {
+	tmpl_train_28_high(0, 84)
+}
+
+spriteset(sprites_eidan_03_mid_p, "sprites/eidan_03_1x.png") {
+	tmpl_train_28_high(0, 112)
+}
+
+spriteset(sprites_eidan_03_front_5door, "sprites/eidan_03_1x.png") {
+	tmpl_train_28_high(0, 140)
+}
+
+spriteset(sprites_eidan_03_back_5door, "sprites/eidan_03_1x.png") {
+	tmpl_train_28_high(0, 168)
+}
+
+spriteset(sprites_eidan_03_mid_p_5door, "sprites/eidan_03_1x.png") {
+	tmpl_train_28_high(0, 196)
+}
+
+spriteset(sprites_eidan_03_purchase, "sprites/eidan_03_1x.png") {
+	tmpl_train_purchase(0, 0)
+}
+
+spriteset(sprites_eidan_03_5door_purchase, "sprites/eidan_03_1x.png") {
+	tmpl_train_purchase(0, 14)
+}
+
+
+switch (FEAT_TRAINS, SELF, switch_eidan_03_artic, getbits(extra_callback_info1, 0, 8)) {
+	1..7: return item_eidan_03;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_03_5door_artic, getbits(extra_callback_info1, 0, 8)) {
+	1..7: return item_eidan_03_5door;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_03_sprites, position_in_vehid_chain) {
+	0: return sprites_eidan_03_front;
+	1: return sprites_eidan_03_mid_p;
+	2..5: return sprites_eidan_03_mid;
+	6: return sprites_eidan_03_mid_p;
+	7: return sprites_eidan_03_back;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_03_5door_sprites, position_in_vehid_chain) {
+	0: return sprites_eidan_03_front_5door;
+	1: return sprites_eidan_03_mid_p_5door;
+	2..5: return sprites_eidan_03_mid;
+	6: return sprites_eidan_03_mid_p_5door;
+	7: return sprites_eidan_03_back_5door;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_03_effect, position_in_vehid_chain) {
+	0: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	1: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	2..5: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	6: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	7: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+}
+
+item (FEAT_TRAINS, item_eidan_03, 300) {
+	property {
+		name: string(STR_NAME_EIDAN_03, string(STR_3DOOR));
+		climates_available: ALL_CLIMATES;
+		introduction_date: date(1988,01,01);
+		model_life: 20;
+		vehicle_life: 30;
+		refittable_cargo_classes: bitmask(CC_PASSENGERS);
+		loading_speed: 20;
+		cargo_age_period: 50;
+		sprite_id: SPRITE_ID_NEW_TRAIN;
+		speed: 110 km/h;
+		refit_cost: 0;
+		track_type: RT_NABE;
+		ai_special_flag: AI_FLAG_PASSENGER;
+		power: 1280 kW;
+		length: 7;
+		cost_factor: 85;
+		running_cost_base: RUNNING_COST_ELECTRIC;
+		running_cost_factor: 170;
+		dual_headed: 0;
+		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
+		cargo_capacity: 133;
+		weight: 176 tons;
+		engine_class: ENGINE_CLASS_ELECTRIC;
+		tractive_effort_coefficient: 0.09;
+		visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	}
+	
+	graphics {
+		articulated_part: switch_eidan_03_artic;
+		can_attach_wagon: string(STR_NO_ATTACH);
+		additional_text: string(STR_DESC_EIDAN_3000, string(STR_NO_ATTACH));
+		visual_effect_and_powered: switch_eidan_03_effect;
+		purchase: sprites_eidan_03_purchase;
+		default: switch_eidan_03_sprites;
+	}
+}
+
+item (FEAT_TRAINS, item_eidan_03_5door, 301) {
+	property {
+		name: string(STR_NAME_EIDAN_03, string(STR_5DOOR));
+		climates_available: ALL_CLIMATES;
+		introduction_date: date(1990,01,01);
+		model_life: 20;
+		vehicle_life: 30;
+		refittable_cargo_classes: bitmask(CC_PASSENGERS);
+		loading_speed: 30;
+		cargo_age_period: 50;
+		sprite_id: SPRITE_ID_NEW_TRAIN;
+		speed: 110 km/h;
+		refit_cost: 0;
+		track_type: RT_NABE;
+		ai_special_flag: AI_FLAG_PASSENGER;
+		power: 1580 kW;
+		length: 7;
+		cost_factor: 88;
+		running_cost_base: RUNNING_COST_ELECTRIC;
+		running_cost_factor: 176;
+		dual_headed: 0;
+		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
+		cargo_capacity: 134;
+		weight: 168 tons;
+		engine_class: ENGINE_CLASS_ELECTRIC;
+		tractive_effort_coefficient: 0.09;
+		visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	}
+	
+	graphics {
+		articulated_part: switch_eidan_03_5door_artic;
+		can_attach_wagon: string(STR_NO_ATTACH);
+		additional_text: string(STR_DESC_EIDAN_3000, string(STR_NO_ATTACH));
+		visual_effect_and_powered: switch_eidan_03_effect;
+		purchase: sprites_eidan_03_5door_purchase;
+		default: switch_eidan_03_5door_sprites;
+	}
+}
+

@@ -26,6 +26,8 @@ STR_3CAR					:(3-car)
 STR_4CAR					:(4-car)
 STR_6CAR					:(6-car)
 STR_8CAR					:(8-car)
+STR_3DOOR					:(3-door)
+STR_5DOOR					:(5-door)
 
 #marunouchi line
 STR_NAME_EIDAN_02			:Eidan 02 series {STRING}
@@ -36,7 +38,8 @@ STR_NAME_EIDAN_500  		:Eidan 300/400/500/900 series {STRING}
 STR_DESC_EIDAN_500			:Line served: Tōkyō Metro {RED}Marunouchi Line{BLACK}{}{STRING}
 
 #hibiya line
-STR_NAME_EIDAN_03			:Eidan 03 series
+STR_NAME_EIDAN_03			:Eidan 03 series {STRING}
+STR_DESC_EIDAN_03			:Lines served: Tōkyō Metro {SILVER}Hibiya Line{BLACK}, Tōbu Railway {GOLD}Isesaki Line{BLACK}, Tōbu Railway {GOLD}Nikkō Line{BLACK}, Tōkyū Corporation {GOLD}Tōyoko Line{BLACK}{}{STRING}
 STR_NAME_EIDAN_3000			:Eidan 3000 series {STRING}
 STR_DESC_EIDAN_3000			:Lines served: Tōkyō Metro {SILVER}Hibiya Line{BLACK}, Tōbu Railway {GOLD}Isesaki Line{BLACK}, Tōkyū Corporation {GOLD}Tōyoko Line{BLACK}{}{STRING}
 

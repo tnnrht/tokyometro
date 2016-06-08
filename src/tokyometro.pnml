@@ -133,6 +133,6 @@ template tmpl_train_32(x, y) {
 #include "eidan_02.pnml"	//Eidan 02 series  ids:279,280
 
 // Hibiya
-//#include "eidan_3000.pnml" //Eidan 3000 series  ids:296,297,298,299
-//#include "eidan_03.pnml"	//Eidan 03 series
+#include "eidan_3000.pnml" //Eidan 3000 series  ids:296,297,298,299
+#include "eidan_03.pnml"	//Eidan 03 series	ids:300,301
 

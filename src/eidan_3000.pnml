@@ -1,0 +1,354 @@
+//Eidan 3000 series
+
+spriteset(sprites_eidan_3000_front, "sprites/eidan_3000_1x.png") {
+	tmpl_train_28_high(0, 14)
+}
+
+spriteset(sprites_eidan_3000_back, "sprites/eidan_3000_1x.png") {
+	tmpl_train_28_high(0, 42)
+}
+
+// rear cab pantograph down
+spriteset(sprites_eidan_3000_back_down, "sprites/eidan_3000_1x.png") {
+	tmpl_train_28_high(0, 70)
+}
+
+spriteset(sprites_eidan_3000_mid, "sprites/eidan_3000_1x.png") {
+	tmpl_train_28_high(0, 98)
+}
+
+spriteset(sprites_eidan_3000_mid_pf, "sprites/eidan_3000_1x.png") {
+	tmpl_train_28_high(0, 126)
+}
+
+spriteset(sprites_eidan_3000_mid_pb, "sprites/eidan_3000_1x.png") {
+	tmpl_train_28_high(0, 154)
+}
+
+spriteset(sprites_eidan_3000_purchase, "sprites/eidan_3000_1x.png") {
+	tmpl_train_purchase(0, 0)
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_artic, getbits(extra_callback_info1, 0, 8)) {
+	1..7: return item_eidan_3000;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_2car_artic, getbits(extra_callback_info1, 0, 8)) {
+	1: return item_eidan_3000_2car;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_4car_artic, getbits(extra_callback_info1, 0, 8)) {
+	1..3: return item_eidan_3000_4car;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_6car_artic, getbits(extra_callback_info1, 0, 8)) {
+	1..5: return item_eidan_3000_6car;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch (FEAT_TRAINS, PARENT, switch_eidan_3000_2car_attach_length, num_vehs_in_consist) {
+	1..6: return CB_RESULT_ATTACH_ALLOW;
+	return string(STR_NO_ATTACH_MORE);
+}
+
+switch (FEAT_TRAINS, PARENT, switch_eidan_3000_4car_attach_length, num_vehs_in_consist) {
+	1..4: return CB_RESULT_ATTACH_ALLOW;
+	return string(STR_NO_ATTACH_MORE);
+}
+
+switch (FEAT_TRAINS, PARENT, switch_eidan_3000_6car_attach_length, num_vehs_in_consist) {
+	1..2: return CB_RESULT_ATTACH_ALLOW;
+	return string(STR_NO_ATTACH_MORE);
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_attach, vehicle_type_id) {
+	296: switch_eidan_3000_2car_attach_length;
+	297: switch_eidan_3000_4car_attach_length;
+	298: switch_eidan_3000_6car_attach_length;
+	299: return string(STR_NO_ATTACH_MORE);
+	return string(STR_WRONG_ATTACH_TYPE);
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_2car_sprites, position_in_articulated_veh) {
+	0: return sprites_eidan_3000_front;
+	1: return sprites_eidan_3000_back_down;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_2car_effect, position_in_articulated_veh) {
+	0: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	1: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_4car_sprites, position_in_articulated_veh) {
+	0: return sprites_eidan_3000_front;
+	1: return sprites_eidan_3000_mid;
+	2: return sprites_eidan_3000_mid;
+	3: return sprites_eidan_3000_back;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_4car_effect, position_in_articulated_veh) {
+	0: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	1: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	2: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	3: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_6car_sprites_forward, position_in_articulated_veh) {
+	0: return sprites_eidan_3000_front;
+	1: return sprites_eidan_3000_mid;
+	2: return sprites_eidan_3000_mid_pf;
+	3: return sprites_eidan_3000_mid;
+	4: return sprites_eidan_3000_mid;
+	5: return sprites_eidan_3000_back;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_6car_sprites_reverse, position_in_articulated_veh) {
+	0: return sprites_eidan_3000_front;
+	1: return sprites_eidan_3000_mid;
+	2: return sprites_eidan_3000_mid;
+	3: return sprites_eidan_3000_mid_pb;
+	4: return sprites_eidan_3000_mid;
+	5: return sprites_eidan_3000_back;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_6car_effect_forward, position_in_articulated_veh) {
+	0: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	1: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	2: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	3: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	4: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	5: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_6car_effect_reverse, position_in_articulated_veh) {
+	0: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	1: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	2: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	3: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	4: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	5: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+}
+
+switch (FEAT_TRAINS, PARENT, switch_eidan_3000_6car_sprites, vehicle_is_reversed) {
+	0: switch_eidan_3000_6car_sprites_forward;
+	1: switch_eidan_3000_6car_sprites_reverse;
+}
+
+switch (FEAT_TRAINS, PARENT, switch_eidan_3000_6car_effect, vehicle_is_reversed) {
+	0: switch_eidan_3000_6car_effect_forward;
+	1: switch_eidan_3000_6car_effect_reverse;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_sprites_forward, position_in_articulated_veh) {
+	0: return sprites_eidan_3000_front;
+	1: return sprites_eidan_3000_mid;
+	2: return sprites_eidan_3000_mid_pf;
+	3: return sprites_eidan_3000_mid;
+	4: return sprites_eidan_3000_mid_pb;
+	5: return sprites_eidan_3000_mid;
+	6: return sprites_eidan_3000_mid;
+	7: return sprites_eidan_3000_back;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_sprites_reverse, position_in_articulated_veh) {
+	0: return sprites_eidan_3000_front;
+	1: return sprites_eidan_3000_mid;
+	2: return sprites_eidan_3000_mid;
+	3: return sprites_eidan_3000_mid_pf;
+	4: return sprites_eidan_3000_mid;
+	5: return sprites_eidan_3000_mid_pb;
+	6: return sprites_eidan_3000_mid;
+	7: return sprites_eidan_3000_back;
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_effect_forward, position_in_articulated_veh) {
+	0: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	1: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	2: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	3: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	4: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	5: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	6: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	7: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_effect_reverse, position_in_articulated_veh) {
+	0: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	1: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	2: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	3: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	4: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	5: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	6: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE,0,DISABLE_WAGON_POWER);
+	7: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+}
+
+switch (FEAT_TRAINS, PARENT, switch_eidan_3000_sprites, vehicle_is_reversed) {
+	0: switch_eidan_3000_sprites_forward;
+	1: switch_eidan_3000_sprites_reverse;
+}
+
+switch (FEAT_TRAINS, PARENT, switch_eidan_3000_effect, vehicle_is_reversed) {
+	0: switch_eidan_3000_effect_forward;
+	1: switch_eidan_3000_effect_reverse;
+}
+
+item (FEAT_TRAINS, item_eidan_3000_2car, 296) {
+	property {
+		name: string(STR_NAME_EIDAN_3000, string(STR_2CAR));
+		climates_available: ALL_CLIMATES;
+		introduction_date: date(1960,01,01);
+		model_life: 26;
+		vehicle_life: 30;
+		refittable_cargo_classes: bitmask(CC_PASSENGERS);
+		loading_speed: 20;
+		cargo_age_period: 50;
+		sprite_id: SPRITE_ID_NEW_TRAIN;
+		speed: 95 km/h;
+		refit_cost: 0;
+		track_type: RT_NABE;
+		ai_special_flag: AI_FLAG_PASSENGER;
+		power: 600 kW;
+		length: 7;
+		cost_factor: 25;
+		running_cost_base: RUNNING_COST_ELECTRIC;
+		running_cost_factor: 50;
+		dual_headed: 0;
+		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
+		cargo_capacity: 120;
+		weight: 64 tons;
+		engine_class: ENGINE_CLASS_ELECTRIC;
+		tractive_effort_coefficient: 0.11;
+		visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	}
+	
+	graphics {
+		articulated_part: switch_eidan_3000_2car_artic;
+		can_attach_wagon: switch_eidan_3000_attach;
+		additional_text: string(STR_DESC_EIDAN_3000,string(STR_ATTACH_SAME,"8"));
+		visual_effect_and_powered: switch_eidan_3000_2car_effect;
+		purchase: sprites_eidan_3000_purchase;
+		default: switch_eidan_3000_2car_sprites;
+	}
+}
+
+item (FEAT_TRAINS, item_eidan_3000_4car, 297) {
+	property {
+		name: string(STR_NAME_EIDAN_3000, string(STR_4CAR));
+		climates_available: ALL_CLIMATES;
+		introduction_date: date(1961,01,01);
+		model_life: 26;
+		vehicle_life: 30;
+		refittable_cargo_classes: bitmask(CC_PASSENGERS);
+		loading_speed: 20;
+		cargo_age_period: 50;
+		sprite_id: SPRITE_ID_NEW_TRAIN;
+		speed: 95 km/h;
+		refit_cost: 0;
+		track_type: RT_NABE;
+		ai_special_flag: AI_FLAG_PASSENGER;
+		power: 1200 kW;
+		length: 7;
+		cost_factor: 45;
+		running_cost_base: RUNNING_COST_ELECTRIC;
+		running_cost_factor: 90;
+		dual_headed: 0;
+		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
+		cargo_capacity: 124;
+		weight: 128 tons;
+		engine_class: ENGINE_CLASS_ELECTRIC;
+		tractive_effort_coefficient: 0.11;
+		visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	}
+	
+	graphics {
+		articulated_part: switch_eidan_3000_4car_artic;
+		can_attach_wagon: switch_eidan_3000_attach;
+		additional_text: string(STR_DESC_EIDAN_3000,string(STR_ATTACH_SAME,"8"));
+		visual_effect_and_powered: switch_eidan_3000_4car_effect;
+		purchase: sprites_eidan_3000_purchase;
+		default: switch_eidan_3000_4car_sprites;
+	}
+}
+
+item (FEAT_TRAINS, item_eidan_3000_6car, 298) {
+	property {
+		name: string(STR_NAME_EIDAN_3000, string(STR_6CAR));
+		climates_available: ALL_CLIMATES;
+		introduction_date: date(1964,01,01);
+		model_life: 26;
+		vehicle_life: 30;
+		refittable_cargo_classes: bitmask(CC_PASSENGERS);
+		loading_speed: 20;
+		cargo_age_period: 50;
+		sprite_id: SPRITE_ID_NEW_TRAIN;
+		speed: 95 km/h;
+		refit_cost: 0;
+		track_type: RT_NABE;
+		ai_special_flag: AI_FLAG_PASSENGER;
+		power: 1800 kW;
+		length: 7;
+		cost_factor: 65;
+		running_cost_base: RUNNING_COST_ELECTRIC;
+		running_cost_factor: 130;
+		dual_headed: 0;
+		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
+		cargo_capacity: 125;
+		weight: 192 tons;
+		engine_class: ENGINE_CLASS_ELECTRIC;
+		tractive_effort_coefficient: 0.11;
+		visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	}
+	
+	graphics {
+		articulated_part: switch_eidan_3000_6car_artic;
+		can_attach_wagon: switch_eidan_3000_attach;
+		additional_text: string(STR_DESC_EIDAN_3000,string(STR_ATTACH_SAME,"8"));
+		visual_effect_and_powered: switch_eidan_3000_6car_effect;
+		purchase: sprites_eidan_3000_purchase;
+		default: switch_eidan_3000_6car_sprites;
+	}
+}
+
+item (FEAT_TRAINS, item_eidan_3000, 299) {
+	property {
+		name: string(STR_NAME_EIDAN_3000,string(STR_8CAR));
+		climates_available: ALL_CLIMATES;
+		introduction_date: date(1970,01,01);
+		model_life: 26;
+		vehicle_life: 30;
+		refittable_cargo_classes: bitmask(CC_PASSENGERS);
+		loading_speed: 20;
+		cargo_age_period: 50;
+		sprite_id: SPRITE_ID_NEW_TRAIN;
+		speed: 95 km/h;
+		refit_cost: 0;
+		track_type: RT_NABE;
+		ai_special_flag: AI_FLAG_PASSENGER;
+		power: 2400 kW;
+		length: 7;
+		cost_factor: 80;
+		running_cost_base: RUNNING_COST_ELECTRIC;
+		running_cost_factor: 160;
+		dual_headed: 0;
+		default_cargo_type: DEFAULT_CARGO_FIRST_REFITTABLE;
+		cargo_capacity: 126;
+		weight: 256 tons;
+		engine_class: ENGINE_CLASS_ELECTRIC;
+		tractive_effort_coefficient: 0.11;
+		visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC,0,ENABLE_WAGON_POWER);
+	}
+	
+	graphics {
+		articulated_part: switch_eidan_3000_artic;
+		can_attach_wagon: string(STR_NO_ATTACH);
+		additional_text: string(STR_DESC_EIDAN_3000, string(STR_NO_ATTACH));
+		visual_effect_and_powered: switch_eidan_3000_effect;
+		purchase: sprites_eidan_3000_purchase;
+		default: switch_eidan_3000_sprites;
+	}
+}
+
