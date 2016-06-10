@@ -1,9 +1,11 @@
 //header and global settings
+#define TOKYOMETRO_ID "mkw\E0"
+
 grf {
-	grfid: "mkw\E0";
+	grfid: TOKYOMETRO_ID;
 	name: string(STR_TOKYOMETRO_NAME);
 	desc: string(STR_TOKYOMETRO_DESC);
-	version: 3;
+	version: 4;
 	min_compatible_version: 2;
 	// purchase costs
 	param {

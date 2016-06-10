@@ -64,11 +64,16 @@ switch (FEAT_TRAINS, PARENT, switch_eidan_3000_6car_attach_length, num_vehs_in_c
 	return string(STR_NO_ATTACH_MORE);
 }
 
-switch (FEAT_TRAINS, SELF, switch_eidan_3000_attach, vehicle_type_id) {
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_attach_vehid, vehicle_type_id) {
 	296: switch_eidan_3000_2car_attach_length;
 	297: switch_eidan_3000_4car_attach_length;
 	298: switch_eidan_3000_6car_attach_length;
 	299: return string(STR_NO_ATTACH_MORE);
+	return string(STR_WRONG_ATTACH_TYPE);
+}
+
+switch (FEAT_TRAINS, SELF, switch_eidan_3000_attach, grfid) {
+	str2number(TOKYOMETRO_ID): switch_eidan_3000_attach_vehid;
 	return string(STR_WRONG_ATTACH_TYPE);
 }
 
