@@ -112,6 +112,18 @@ template tmpl_train_28_high(x, y) {
 	[ x+171,  y,	   22,	  19,	  -6,	    -11]
 }
 
+template tmpl_train_28_high_rev(x, y) {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[ x+98,	  y,	   8,     24,	  -3,	    -12]
+	[ x+107,  y,	   20,	  19,	  -14,	    -10]
+	[ x+132,  y,	   32,	  14,	  -12,	    -10]
+	[ x+171,  y,	   20,	  19,	  -4,	    -10]
+	[ x,	  y,	   8,	  24,	  -3,	    -12]
+	[ x+9,	  y,	   22,	  19,	  -16,	    -9]
+	[ x+34,	  y,	   32,	  14,	  -17,	    -10]
+	[ x+73,	  y,	   22,	  19,	  -6,	    -11]
+}
+
 template tmpl_train_32(x, y) {
 	//left_x, upper_y, width, height, offset_x, offset_y
 	[ x,	  y,	   8,     22,	  -3,	    -10]

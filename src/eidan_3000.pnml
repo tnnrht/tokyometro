@@ -22,7 +22,7 @@ spriteset(sprites_eidan_3000_mid_pf, "sprites/eidan_3000_1x.png") {
 }
 
 spriteset(sprites_eidan_3000_mid_pb, "sprites/eidan_3000_1x.png") {
-	tmpl_train_28_high(0, 154)
+	tmpl_train_28_high_rev(0, 126)
 }
 
 spriteset(sprites_eidan_3000_purchase, "sprites/eidan_3000_1x.png") {
